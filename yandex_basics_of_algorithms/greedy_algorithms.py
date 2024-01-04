@@ -1,4 +1,4 @@
-def booking_a_meeting_room():
+def booking_a_meeting_room() -> int:
     # https://new.contest.yandex.ru/48557/problem?id=215/2023_04_06/RdGbbmsLQn
 
     count = int(input())
