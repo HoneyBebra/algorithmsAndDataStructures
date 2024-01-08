@@ -1,8 +1,13 @@
-def lomuto_quicksort() -> str:
+import random
+
+
+def random_lomuto_quicksort() -> str:
     array_count = int(input())
     array = list(map(int, input().split()))
 
     def lomuto_partition(arr: list, low: int, high: int) -> int:
+        pivot_index = random.randint(low, high)
+        arr[low], arr[pivot_index] = arr[pivot_index], arr[low]  # swap places first and random element
         pivot = arr[low]
         i = low  # count elements are smaller than the pivot
         for j in range(low + 1, high + 1):
@@ -21,3 +26,6 @@ def lomuto_quicksort() -> str:
     recursion(arr=array, low=0, high=array_count-1)
 
     return ' '.join(str(item) for item in array)
+
+
+print(random_lomuto_quicksort())
