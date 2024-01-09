@@ -21,3 +21,22 @@ def lomuto_quicksort() -> str:
     recursion(arr=array, low=0, high=array_count-1)
 
     return ' '.join(str(item) for item in array)
+
+
+def merge_sorted_arrays(count_arrays: int, arrays: list) -> str:
+    result = []
+    pointers = [0] * count_arrays
+
+    while any(pointers[i] < len(arrays[i]) for i in range(count_arrays)):
+        min_val = float('inf')
+        min_index = -1
+
+        for i in range(count_arrays):
+            if pointers[i] < len(arrays[i]) and arrays[i][pointers[i]] < min_val:
+                min_val = arrays[i][pointers[i]]
+                min_index = i
+
+        result.append(min_val)
+        pointers[min_index] += 1
+
+    return ' '.join(str(item) for item in result)
